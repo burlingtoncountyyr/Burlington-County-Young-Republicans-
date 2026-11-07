@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burlington County Young Republicans</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+        }
+        .patriotic-gradient-text {
+            background: linear-gradient(135deg, #ef4444 0%, #ffffff 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .patriotic-border {
+            border-image: linear-gradient(to right, #ef4444, #ffffff, #3b82f6) 1;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col selection:bg-red-600 selection:text-white">
+
+    <!-- Top Patriotic Bar -->
+    <div class="h-1.5 w-full bg-gradient-to-r from-red-600 via-white to-blue-600"></div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Brand Name -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-14 h-14 rounded-full bg-slate-900 border-2 border-slate-700 flex items-center justify-center p-0.5 shadow-lg shadow-red-950/20 shrink-0">
+                        <!-- Custom Seal SVG matching official logo -->
+                        <svg viewBox="0 0 400 400" class="w-full h-full">
+                            <!-- Outer Blue Ring -->
+                            <circle cx="200" cy="200" r="190" fill="#0d2c54" stroke="#ffffff" stroke-width="4"/>
+                            <circle cx="200" cy="200" r="142" fill="#ffffff"/>
+                            
+                            <!-- Circular Text Path -->
+                            <path id="textArcTop" d="M 55,200 A 145,145 0 1,1 345,200" fill="none" />
+                            <path id="textArcBottom" d="M 345,200 A 145,145 0 0,1 55,200" fill="none" />
+                            
+                            <text fill="#ffffff" font-family="'Inter', sans-serif" font-weight="900" font-size="27" letter-spacing="3">
+                                <textPath href="#textArcTop" startOffset="50%" text-anchor="middle">BURLINGTON COUNTY</textPath>
+                            </text>
+                            <text fill="#ffffff" font-family="'Inter', sans-serif" font-weight="900" font-size="25" letter-spacing="2">
+                                <textPath href="#textArcBottom" startOffset="50%" text-anchor="middle">YOUNG REPUBLICANS</textPath>
+                            </text>
+
+                            <!-- Burlington County Red Silhouette inside seal -->
+                            <g transform="translate(15, 10)">
+                                <path d="M 195,78 C 210,95 240,140 280,210 C 290,230 260,280 230,310 C 200,325 185,300 170,270 C 150,230 110,185 100,165 C 95,155 105,145 130,150 C 160,155 170,120 185,85 Z" fill="#b91c1c" stroke="#0d2c54" stroke-width="3"/>
+                                
+                                <!-- Elephant Head Graphic Silhouette inside county map -->
+                                <g transform="translate(110, 80) scale(0.75)" fill="#ffffff" stroke="#b91c1c" stroke-width="3">
+                                    <path d="M70,40 Q100,10 130,35 Q145,50 140,75 Q135,90 120,95 Q105,95 90,85 Q115,100 135,100 Q150,100 155,90 Q155,115 135,125 Q115,135 85,115 C75,105 60,95 50,85 C40,75 35,60 45,45 Q55,30 70,40 Z" />
+                                    <!-- Elephant Eye -->
+                                    <circle cx="105" cy="45" r="4" fill="#b91c1c" stroke="none"/>
+                                    <!-- Elephant Tusks -->
+                                    <path d="M125,75 Q150,75 160,65" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+                                    <path d="M125,85 Q145,87 155,80" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-extrabold tracking-wider uppercase text-white">
+                            Burlington County
+                        </span>
+                        <span class="block text-xs font-bold tracking-widest text-red-500 uppercase">
+                            Young Republicans
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold">
+                    <a href="#mission" class="text-slate-300 hover:text-red-500 transition-colors">Our Mission</a>
+                    <a href="#pillars" class="text-slate-300 hover:text-red-500 transition-colors">Core Pillars</a>
+                    <a href="#qualifications" class="text-slate-300 hover:text-red-500 transition-colors">Qualifications</a>
+                    <a href="#join" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold shadow-lg shadow-red-600/30 transition-all transform hover:-translate-y-0.5">
+                        Get Involved <i class="fa-solid fa-flag ml-1 text-xs"></i>
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Nav Dropdown -->
+            <div id="mobileMenu" class="hidden md:hidden pb-6 pt-2 border-t border-slate-800 space-y-3">
+                <a href="#mission" class="block text-slate-300 hover:text-red-500 py-2 font-medium">Our Mission</a>
+                <a href="#pillars" class="block text-slate-300 hover:text-red-500 py-2 font-medium">Core Pillars</a>
+                <a href="#qualifications" class="block text-slate-300 hover:text-red-500 py-2 font-medium">Qualifications</a>
+                <a href="#join" class="block w-full text-center py-3 rounded-lg bg-red-600 text-white font-bold">Get Involved</a>
+                <!-- Mobile Social Links -->
+                <div class="flex items-center justify-center space-x-6 pt-4 border-t border-slate-800/60">
+                    <a href="https://www.facebook.com/share/1FCG6dbhF2/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Page" class="text-slate-400 hover:text-blue-500 text-2xl transition-colors">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/burlcoyr?rpxt=MTV1czk4Z3Yxa2JpeA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" class="text-slate-400 hover:text-pink-500 text-2xl transition-colors">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32 bg-slate-950">
+        <!-- Background Patriotic Star Accents -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none flex justify-between items-center px-10">
+            <i class="fa-solid fa-star text-red-500 text-9xl -translate-y-20"></i>
+            <i class="fa-solid fa-star text-blue-500 text-9xl translate-y-20"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <!-- Circular Logo Feature Badge -->
+                <div class="mx-auto w-32 h-32 mb-6 rounded-full bg-slate-900 p-1 border-2 border-slate-700 shadow-2xl shadow-blue-950/50">
+                    <svg viewBox="0 0 400 400" class="w-full h-full">
+                        <circle cx="200" cy="200" r="190" fill="#0d2c54" stroke="#ffffff" stroke-width="4"/>
+                        <circle cx="200" cy="200" r="142" fill="#ffffff"/>
+                        <path id="heroArcTop" d="M 55,200 A 145,145 0 1,1 345,200" fill="none" />
+                        <path id="heroArcBottom" d="M 345,200 A 145,145 0 0,1 55,200" fill="none" />
+                        <text fill="#ffffff" font-family="'Inter', sans-serif" font-weight="900" font-size="27" letter-spacing="3">
+                            <textPath href="#heroArcTop" startOffset="50%" text-anchor="middle">BURLINGTON COUNTY</textPath>
+                        </text>
+                        <text fill="#ffffff" font-family="'Inter', sans-serif" font-weight="900" font-size="25" letter-spacing="2">
+                            <textPath href="#heroArcBottom" startOffset="50%" text-anchor="middle">YOUNG REPUBLICANS</textPath>
+                        </text>
+                        <g transform="translate(15, 10)">
+                            <path d="M 195,78 C 210,95 240,140 280,210 C 290,230 260,280 230,310 C 200,325 185,300 170,270 C 150,230 110,185 100,165 C 95,155 105,145 130,150 C 160,155 170,120 185,85 Z" fill="#b91c1c" stroke="#0d2c54" stroke-width="3"/>
+                            <g transform="translate(110, 80) scale(0.75)" fill="#ffffff" stroke="#b91c1c" stroke-width="3">
+                                <path d="M70,40 Q100,10 130,35 Q145,50 140,75 Q135,90 120,95 Q105,95 90,85 Q115,100 135,100 Q150,100 155,90 Q155,115 135,125 Q115,135 85,115 C75,105 60,95 50,85 C40,75 35,60 45,45 Q55,30 70,40 Z" />
+                                <circle cx="105" cy="45" r="4" fill="#b91c1c" stroke="none"/>
+                                <path d="M125,75 Q150,75 160,65" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+                                <path d="M125,85 Q150,87 155,80" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-slate-900 border border-slate-800 mb-6 shadow-inner">
+                    <span class="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-slate-300">Building the Next Generation of Leaders</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
+                    GET YOUNG REPUBLICANS <span class="patriotic-gradient-text">INVOLVED</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed font-normal">
+                    A lot of young Americans are finding themselves disheartened with the way things are right now in our county, state and country. Understanding this, we know the crucial importance of supporting meaningful and effective political efforts in Burlington County to make an impact on our future.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#join" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-red-600 hover:bg-red-500 text-white font-extrabold text-lg shadow-xl shadow-red-600/25 transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
+                        <span>Join the Movement</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#mission" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-lg transition-all flex items-center justify-center space-x-2">
+                        <span>Learn More</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated & Involved Banner -->
+    <section id="mission" class="py-12 bg-slate-900/60 border-y border-slate-800 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <i class="fa-solid fa-quote-left text-3xl text-red-500/40 mb-4 block"></i>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-wide leading-snug">
+                As an organization of involved and dedicated young men and women, we get fellow Young Republicans involved in civics and politics.
+            </h2>
+        </div>
+    </section>
+
+    <!-- Core Pillars / Text Content Import -->
+    <section id="pillars" class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Our Core Mission & Objectives</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="bg-slate-900/80 rounded-2xl p-8 border border-slate-800 hover:border-red-500/50 transition-all flex flex-col justify-between group shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-red-600"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 text-red-500 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-check-to-slot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4 uppercase tracking-wider">
+                            SUPPORT CONSERVATIVE CANDIDATES
+                        </h3>
+                        <p class="text-slate-300 leading-relaxed text-sm">
+                            The average voter doesn't go to the polls knowing the policies and ideas of most local level politicians. In this time of political apathy, we seek to Raise Awareness for Conservative Candidates and help get them elected by volunteering for their campaigns.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-slate-900/80 rounded-2xl p-8 border border-slate-800 hover:border-blue-500/50 transition-all flex flex-col justify-between group shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-white"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-blue-600/10 text-blue-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4 uppercase tracking-wider">
+                            DEVELOP FUTURE LEADERS
+                        </h3>
+                        <p class="text-slate-300 leading-relaxed text-sm mb-4">
+                            The fate of this country does not depend on the decisions made here and now, but instead the quality of leadership we have for decades to come. We must foster the next generation of leaders with effective understanding of the issues and proper development of public service skillsets.
+                        </p>
+                        <p class="text-slate-400 leading-relaxed text-xs italic">
+                            Through our Political Opportunities, we seek to impassion and inspire future leaders in Burlington County.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-slate-900/80 rounded-2xl p-8 border border-slate-800 hover:border-red-500/50 transition-all flex flex-col justify-between group shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-blue-600"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 text-red-500 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4 uppercase tracking-wider">
+                            PROVIDE POLITICAL OPPORTUNITIES
+                        </h3>
+                        <p class="text-slate-300 leading-relaxed text-sm mb-4">
+                            Every political leader and elected official started somewhere. Recognizing this, we seek to provide members of the Burlington County Young Republicans with connections and potential opportunities they wish to take advantage of.
+                        </p>
+                        <p class="text-slate-400 leading-relaxed text-xs italic">
+                            Just as we support the great Republican leaders of Burlington County, they support us.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualifications Section -->
+    <section id="qualifications" class="py-16 bg-slate-900/80 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-white">Qualifications to Join</h2>
+                <p class="text-slate-400 mt-2">Requirements to become a Burlington County Young Republican member</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Location Qualification -->
+                <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 flex items-start space-x-4">
+                    <div class="w-12 h-12 rounded-lg bg-red-600/10 text-red-500 flex items-center justify-center text-xl shrink-0 mt-1">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">Location & Residency</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Those who live and work in Burlington County are eligible to become official members of our organization.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Age Qualification -->
+                <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 flex items-start space-x-4">
+                    <div class="w-12 h-12 rounded-lg bg-blue-600/10 text-blue-400 flex items-center justify-center text-xl shrink-0 mt-1">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">Age Requirements</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Primary membership is for individuals aged 18 to 40. <span class="text-slate-400 font-normal">Though younger members are welcome and will be registered for our student membership program.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved / Join Form -->
+    <section id="join" class="py-20 bg-slate-950 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-900 rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center max-w-xl mx-auto mb-10">
+                    <i class="fa-solid fa-star text-red-500 text-2xl mb-2"></i>
+                    <h2 class="text-3xl font-extrabold text-white">Get Involved Today</h2>
+                    <p class="text-slate-400 mt-2">Take the first step toward shaping the future of Burlington County.</p>
+                </div>
+
+                <!-- Notification Alert (Hidden by default) -->
+                <div id="formSuccess" class="hidden mb-6 p-4 rounded-xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-center">
+                    <i class="fa-solid fa-circle-check text-xl text-emerald-400 mb-1 block"></i>
+                    Thank you for stepping up! We have received your information and will reach out shortly.
+                </div>
+
+                <form id="signupForm" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">First Name</label>
+                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-red-500 transition-colors" placeholder="John">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Last Name</label>
+                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-red-500 transition-colors" placeholder="Smith">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Email Address</label>
+                            <input type="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-red-500 transition-colors" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Phone Number</label>
+                            <input type="tel" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-red-500 transition-colors" placeholder="(856) 555-0199">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Town / Municipality</label>
+                        <input type="text" id="townInput" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-red-500 transition-colors" placeholder="e.g. Mount Laurel">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">How would you like to contribute?</label>
+                        <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-red-500 transition-colors">
+                            <option value="volunteer">Campaign Volunteering & Door Canvas</option>
+                            <option value="events">Attending Meetings & Events</option>
+                            <option value="leadership">Leadership & Committee Roles</option>
+                            <option value="student">Student Membership Program</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-500 hover:to-blue-500 text-white font-extrabold text-lg shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
+                        <span>Submit Registration</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto bg-slate-900 border-t border-slate-800 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center space-x-4 text-center md:text-left">
+                    <div class="w-12 h-12 rounded-full bg-slate-950 p-0.5 border border-slate-700 shrink-0 hidden sm:block">
+                        <svg viewBox="0 0 400 400" class="w-full h-full">
+                            <circle cx="200" cy="200" r="190" fill="#0d2c54" stroke="#ffffff" stroke-width="4"/>
+                            <circle cx="200" cy="200" r="142" fill="#ffffff"/>
+                            <path id="footArcTop" d="M 55,200 A 145,145 0 1,1 345,200" fill="none" />
+                            <path id="footArcBottom" d="M 345,200 A 145,145 0 0,1 55,200" fill="none" />
+                            <text fill="#ffffff" font-family="'Inter', sans-serif" font-weight="900" font-size="27" letter-spacing="3">
+                                <textPath href="#footArcTop" startOffset="50%" text-anchor="middle">BURLINGTON COUNTY</textPath>
+                            </text>
+                            <text fill="#ffffff" font-family="'Inter', sans-serif" font-weight="900" font-size="25" letter-spacing="2">
+                                <textPath href="#footArcBottom" startOffset="50%" text-anchor="middle">YOUNG REPUBLICANS</textPath>
+                            </text>
+                            <g transform="translate(15, 10)">
+                                <path d="M 195,78 C 210,95 240,140 280,210 C 290,230 260,280 230,310 C 200,325 185,300 170,270 C 150,230 110,185 100,165 C 95,155 105,145 130,150 C 160,155 170,120 185,85 Z" fill="#b91c1c" stroke="#0d2c54" stroke-width="3"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="block text-lg font-bold text-white uppercase tracking-wider">Burlington County Young Republicans</span>
+                        <p class="text-xs text-slate-500 mt-1">Paid for by Burlington County Young Republicans. Not authorized by any candidate or candidate's committee.</p>
+                    </div>
+                </div>
+                <!-- Social Links with dynamic hover styling and target="_blank" -->
+                <div class="flex items-center space-x-6 text-slate-400">
+                    <a href="https://www.facebook.com/share/1FCG6dbhF2/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Page" class="hover:text-blue-500 transition-colors text-2xl p-1">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/burlcoyr?rpxt=MTV1czk4Z3Yxa2JpeA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" class="hover:text-pink-500 transition-colors text-2xl p-1">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Patriotic Ribbon -->
+    <div class="h-1.5 w-full bg-gradient-to-r from-red-600 via-white to-blue-600"></div>
+
+    <!-- Dynamic JavaScript -->
+    <script>
+        // List of Burlington County Municipalities
+        const burlingtonTowns = [
+            "Evesham Township", "Mount Laurel", "Moorestown", "Medford", 
+            "Burlington Township", "Pemberton Township", "Willingboro", 
+            "Florence Township", "Cinnaminson", "Bordentown", "Lumberton", 
+            "Southampton", "Maple Shade", "Delran", "Shawnee / Shamong", 
+            "Tabernacle", "Mansfield", "Eastampton", "Westampton", "Riverside"
+        ];
+
+        // Randomly pick town names for the placeholder on each load
+        window.addEventListener('DOMContentLoaded', () => {
+            const randomTown1 = burlingtonTowns[Math.floor(Math.random() * burlingtonTowns.length)];
+            const randomTown2 = burlingtonTowns[Math.floor(Math.random() * burlingtonTowns.length)];
+            const townInput = document.getElementById('townInput');
+            if (townInput) {
+                townInput.placeholder = `e.g., ${randomTown1} or ${randomTown2}`;
+            }
+        });
+
+        // Mobile Nav Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Handle Signup Form Submit
+        const signupForm = document.getElementById('signupForm');
+        const formSuccess = document.getElementById('formSuccess');
+        if (signupForm) {
+            signupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                signupForm.reset();
+                if (formSuccess) {
+                    formSuccess.classList.remove('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
